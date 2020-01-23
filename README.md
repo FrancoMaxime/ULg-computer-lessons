@@ -1,5 +1,5 @@
-# ULg-computer-training
-The slides given during the computer training in the Laboratoire en Sciences gastronomiques Gembloux Agro-Bio TECH
+# ULg-computer-lessons
+The slides given during the computer lessons in the Laboratoire en Sciences gastronomiques Gembloux Agro-Bio TECH
 
 Slides are in the public domain (licence CC0)
 
