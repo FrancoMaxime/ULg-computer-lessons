@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>- 2. Licenses -</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# - 2. Licenses -
+Initialement fait par:
+
+Lionel Dricot
+lionel.dricot@uclouvain.be
+lionel@ploum.net
+
+@ploum - @ploum@mamot.fr
+
+Modifié par :
+
+Maxime Franco
+contact@maximefranco.be
+franco.maxime@gmail.com
+
+https://github.com/FrancoMaxime
+
+
+---
+class: center, middle
+
+# Informations complementaires
+
+http://systematic-paris-region.org/wp-content/uploads/2017/07/LivretBleu_Juridique-2eEdition_GT-LogicielLibre_Systematic_Nov2016_web.pdf
+
+
+---
+class: center, middle
+
+# Code is writing
+- Copyright applies like any artistic creation
+- Copyright is immediate (you only have to prove the creation time unlike patents and trademarks)
+
+---
+class: center, middle
+
+# Patents
+- No software patents in EU
+- In theory…
+
+???
+Read : https://ploum.net/working-with-patents/#rev-pnote-1860-3
+
+---
+class: center, middle
+
+- Abstract ideas and algorithms are, in theory, unprotectable
+- Programming languages are not protectable
+- UX is a graphical creation
+
+
+---
+class: center, middle
+
+#Who's the author?
+
+- Agreement between contributors, each is author of his/her lines
+- Economic rights are usually transferred to the employer
+- Authors keep their moral rights
+- Diffusion under a given license is an economic right
+
+
+???
+One of the moral right is that each contributor have the right to see his name listed amongst the contributors.
+
+———
+class: center, middle
+
+#When there's no employer?
+- Open Source projects usually have Contributor Agreements
+- Not really needed when there's no doubt about the intention of the contributor
+
+???
+For big projects, every contributor must sign a contributor agreement
+---
+class: center, middle
+
+#License
+
+"A license is a contract between the provider of the software and the user"
+???
+The provider is not the author but the one who have the economic right. In many cases, that is the employer.
+---
+class: center, middle
+
+#Each software could have its own license
+- But standardisation helps to clarify the use
+- Software distributors are not lawyers
+- A license might be illegal and thus invalid (hence the test in court)
+
+???
+If a license is tested as invalid in court, nobody can enforces it anymore
+---
+class: center, middle
+
+#Free Software vs proprietary software
+
+???
+The difference is arbitrary but is only related to the license.
+
+---
+class: center, middle
+
+#How to license a software?
+
+???
+Answer : you have to make sure that the user was informed of the license and could read it. That's why you often have those "I agree" boxes.
+
+---
+class: center, middle
+
+    Copyright (C) <year>  <name of author>
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>
+???
+Header in each source code file. Also there's a COPYING or LICENSE file in every repository.
+---
+class: center, middle
+
+#GPL
+- Translating the values of Free Software into a license.
+- By "forcing" liberties
+---
+class: center, middle
+
+#Copyleft
+![image](https://github.com/ploum/lingi2401/raw/master/images/copyleft.png)
+
+???
+Copyleft = cannot restrict the rights on a software that is modified or redistributed
+---
+class: center, middle
+
+#Tivo and Tivoisation
+- GPL version 3
+- GPL v2+
+
+???
+Tivo was a television recorder using a modified linux in 2006. Source were distributed but a chip only allowed the orignial code to run. Thus, you could not run any modification of the code. Linus Torvalds doesn't care while, for stallman, this was unacceptable. GPLv3 prevents that.
+2+ means that any subsequent version is accepted
+---
+class: center, middle
+
+#LGPL
+Weak Copyleft
+
+???
+Use of a free library (w/o modifying it) in a proprietary software is permitted
+---
+class: center, middle
+
+#AGPL
+Affero General Public License
+
+???
+Technically, the user of the software is the one who runs the server. With AGPL, rights are extended to web users as well. Any user of the online service has the right to the source code of the service.
+---
+class: center, middle
+
+#MIT
+No Copyleft
+---
+class: center, middle
+
+#BSD
+No Copyleft
+
+???
+Completely free to use, modify and redistribute parts or all of the software in free or proprietary software
+---
+class: center, middle
+
+#Mozilla Public License
+Middle-ground between BSD and GPL.
+---
+class: center, middle
+
+#Apache
+No Copyleft
+---
+class: center, middle
+
+#Creative Commons
+- By
+- Share Alike
+- No modification
+- No commercial use
+
+???
+Started by Lawrence Lessig
+
+By = author creditation
+
+Not commercial is not very well formulated: at which point is it commercial or not?
+
+Share-alike = copyleft
+
+Few software are under CC. Mostly used for art, music, ...
+---
+class: center, middle
+background-image: url(https://github.com/ploum/lingi2401/raw/master/images/cc.gif)
+
+---
+class: center, middle
+
+#Many others
+- WTFPL
+- Beerware
+- CeCILL
+- Open Source Initiative (OSI) License Proliferation Committee
+
+???
+CeCILL is a french license. Its aim is to translate GPL and LGPL under french right
+---
+class: center, middle
+
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                    Version 2, December 2004
+
+ Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+
+ Everyone is permitted to copy and distribute verbatim or modified
+ copies of this license document, and changing it is allowed as long
+ as the name is changed.
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
+
+---
+class: center, middle
+/*
+ * ----------------------------------------------------------------------------
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * <phk@FreeBSD.ORG> wrote this file.  As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can buy me a beer in return.   Poul-Henning Kamp
+ * ----------------------------------------------------------------------------
+ */
+
+---
+class: center, middle
+
+#Compatibility between licenses
+- When do you have two different software?
+
+---
+class: center, middle
+![image](https://github.com/ploum/lingi2401/raw/master/images/licences.png)
+
+???
+Image from https://commons.wikimedia.org/wiki/File:Classification_des_licences.svg
+
+---
+class: center, middle
+
+#Dual licensing
+
+???
+It is possible for code to be under two licenses
+---
+class: center, middle
+
+#StarOffice, OpenOffice
+
+???
+LGPL and Sun Industry Standards Source License. StarOffice was proprietary and for internal use and OpenOffice was free and for distribution. So when code was pushed, it was pushed into the two projects.
+
+LibreOffice : LGPL and MPL
+
+That's why some people refuse to sign contributor agreements.
+
+---
+class: center, middle
+#Trilicensing
+Mozilla is under MPL/LGPL/GPL
+
+
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

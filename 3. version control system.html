@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>- 3. Logiciel de gestion de version -</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# - 3. Logiciel de gestion de version -
+
+Maxime Franco
+contact@maximefranco.be
+franco.maxime@gmail.com
+
+https://github.com/FrancoMaxime
+
+---
+class: center, middle
+
+# Livre de réference
+
+https://git-scm.com/book/fr/v2
+---
+class: center, middle
+
+# Qu'est qu'un logiciel de gestion de version(VCS)?
+
+- permet de créer une arborescence d'un projet afin d'en garder toutes les versions qui ont existé.
+- permet de mutualiser un dévelopement
+- fusionne la partie distante sur la partie locale
+- ajout de commentaires lors de fusions
+- gestion de projet
+
+---
+class: center, middle
+
+# Centralisé
+![image](https://user.oc-static.com/files/236001_237000/236859.png)
+
+Source : https://openclassrooms.com/fr/courses/1233741-gerez-vos-codes-source-avec-git
+---
+class: center, middle
+
+# Distribué
+![image](https://user.oc-static.com/files/236001_237000/236860.png)
+
+Source : https://openclassrooms.com/fr/courses/1233741-gerez-vos-codes-source-avec-git
+
+---
+class: center, middle
+
+# VCS courant : Bazaar, git, Mercurial
+
+Ici, nous allons utiliser git (distribué), github pour le rendre centralisé et avoir un bug tracker.
+
+---
+class: center, middle
+
+# Pourquoi git?
+
+- Très rapide
+- Gère efficace les branches
+- Créé à la base pour Linux
+
+---
+class: center, middle
+
+# Installation
+
+```Bash
+sudo apt-get install git-core gitk
+
+git config --global color.diff auto
+git config --global color.status auto
+git config --global color.branch auto
+
+git config --global user.name "votre_pseudo" #Idealement le meme que sur github
+git config --global user.email moi@email.com "#Idealement le meme que le mail github
+
+```
+
+---
+class: center, middle
+
+# Créer un dépot git
+
+```Bash
+cd /home/maxime/Documents
+mkdir test-git
+cd test-git
+
+git init
+```
+
+il y aura un dossier .git caché qui va contenir l'arborescence du projet.
+
+---
+class: center, middle
+
+# Cloner un dépot depuis github
+
+```Bash
+git clone https://github.com/FrancoMaxime/ULg-computer-lessons.git
+```
+
+---
+class: center, middle
+
+# Modifier le code et effectuer des commits
+
+```Bash
+git status #donne l'état du projet (fichiers modifiés recemment)
+
+git add nom_de_fichier #ajoute le fichier dans l'arborescence git
+
+git diff # donne les differences entre la dernière sauvegarde et la version actuelle
+
+git commit -m "commentaires" #sauvegarde les modifications dans l'arborescence
+
+git checkout nomdefichier #supprime les dernières modifs sur un fichier (non commit)
+```
+---
+class: center, middle
+
+# Méthode de travail
+
+1. modifier le code source
+2. tester le programme
+3. commit les changements pour les sauvegarder
+4. jump to step 1
+
+---
+class: center, middle
+
+# Regarder les logs
+```Bash
+git log #Liste les derniers commits avec leur ID
+
+git log -p #Liste les derniers commits avec les changements
+```
+
+---
+class: center, middle
+
+# Annuler un commit
+
+```Bash
+git commit --amend #pour modifier le commentaire du dernier commit
+
+git reset HEAD #Modifie le dernier commit
+git reset HEAD^ #Modifie l'avant dernier commit
+git reset HEAD^^ #Modifie l'avant avant dernier commit
+
+git reset --hard HEAD^   /!\ Annule les commits et perd tous les changements
+
+git reset HEAD -- nomfichier # supprimer un fichier qui a été commit pour le modif
+```
+
+---
+class: center, middle
+
+# Mettre à jour la version locale
+```Bash
+git pull
+```
+
+---
+class: center, middle
+
+# Mettre à jour la version distante
+```Bash
+git push
+```
+
+---
+class: center, middle
+
+# Annuler un commit publié
+```Bash
+git revert 58de9f1c #ici le 58de9f1c représente le début de l'id d'un commit publié
+```
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>- 1. Python, les bonnes pratiques -</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# - 1. Python, les bonnes pratiques -
+Livre de référence 
+
+https://docs.python-guide.org/
+
+Modifié par :
+
+Maxime Franco
+contact@maximefranco.be
+franco.maxime@gmail.com
+
+https://github.com/FrancoMaxime
+
+---
+class: center, middle
+
+# Livre de référence pour les bases du python
+
+ref: https://buildmedia.readthedocs.org/media/pdf/howtothink/latest/howtothink.pdf 
+
+---
+class: center, middle
+
+# Style de code
+
+1. Concepts généraux
+
+---
+class: left, middle
+
+# Code Explicite
+
+Il faut toujours préférer la manière explicite et directe.
+
+MAUVAIS
+```Python
+def make_complex(*args):
+    x, y = args
+    return dict(**locals())
+```
+BON
+```Python
+def make_complex(x, y):
+    return {'x': x, 'y': y}
+```
+
+---
+class: left, middle
+
+# Une déclaration par ligne
+
+Il est préférable de ne jamais faire de déclarations composées
+(sauf pour les listes brèves et expressives)
+
+MAUVAIS
+```Python
+print 'one'; print 'two'
+
+if x == 1: print 'one'
+
+if <complex comparison> and <other complex comparison>:
+    # do something
+```
+BON
+```Python
+print 'one'
+print 'two'
+
+if x == 1:
+    print 'one'
+
+cond1 = <complex comparison>
+cond2 = <other complex comparison>
+if cond1 and cond2:
+    # do something
+```
+---
+class: left, middle
+
+#  Arguments positionnels
+- obligatoires
+- pas de valeurs par défaut
+
+Ce sont les arguments les plus simples et font parties intégrante de la signification de la fonction
+```Python
+def send(message, recipient):
+    #send message to recipient
+    
+send('hello', 'world') #GOOD
+send(recipient='world', message='hello') #BAD
+```
+
+
+---
+class: left, middle
+# Arguments nommés
+- pas obligatoires
+- valeurs par défaut
+- à utiliser quand il y a plus de 2/3  paramètres positionnel
+
+```Python
+def send(message, to, cc=None, bcc=None):
+    #send message to recipient
+    
+send('Hello', 'World', 'Cthulhu', 'God') #BAD
+send('Hello again', 'World', bcc='God', cc='Cthulhu') #BAD
+send('Hello', 'World', cc='Cthulhu', bcc='God') #GOOD
+```
+
+---
+class: left, middle
+# Arguments arbitraires 
+- nombre extensible d'arguments
+- un argument nommé *args
+- *args est un tuple
+
+```Python
+def send(message, *args):
+    #send message to recipient
+    
+send('Hello', 'God', 'Mom', 'Cthulhu') #args = ('God', 'Mom', 'Cthulhu') BAD
+send('Hello', ['God', 'Mom', 'Cthulhu']) #GOOD
+```
+Il est préférable que la nature des arguments soient différent, dans ce cas ci, args peut etre remplacé par une liste de contacts.
+
+---
+class: center, middle
+# Arguments mot-clé arbitraire
+- besoin d'une série indeterminée d'arguments
+- un argument nommé **kwargs
+- **kwargs est un dictionnaire 
+- contient tous les arguments nommés non-interceptés
+
+Dois respecter les memes règles que pour les arguments arbitraires
+
+---
+class: center, middle
+# Nous sommes tous des utilisateurs responsables
+- pas de private
+- pas d'encapsulation possible
+- les caractéristiques internes doivent commencer par un _
+- elles ne doivent pas etre modifiée de l'extérieur
+
+---
+class: center, middle
+# PEP20
+```Python
+>>> import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+```
+https://gist.github.com/evandrix/2030615
+
+---
+class: center, middle
+# PEP8
+
+https://pep8.org/
+
+---
+class: center, middle
+# Conventions
+
+---
+class: left, middle
+# Vérifier si une variable est égale à une constante
+```Python
+if attr == True:
+    print 'True!'
+
+if attr == None:
+    print 'attr is None!'
+#BAD
+```
+```Python
+if attr:
+    print 'True!'
+
+if not attr:
+    print 'attr is falsey!'
+
+if attr is None:
+    print 'attr is None!'
+#GOOD
+```
+
+---
+class: left, middle
+# Accéder à un élément de dictionnaire
+```Python
+d = {'hello': 'world'}
+if d.has_key('hello'):
+    print d['hello']    # prints 'world'
+else:
+    print 'default_value'
+#BAD
+```
+```Python
+d = {'hello': 'world'}
+
+print d.get('hello', 'default_value') # prints 'world'
+print d.get('thingy', 'default_value') # prints 'default_value'
+
+# Or:
+if 'hello' in d:
+    print d['hello']
+#GOOD
+```
+---
+class: left, middle
+# Façons courtes de manipuler des listes
+```Python
+# Filter elements greater than 4
+a = [3, 4, 5]
+b = []
+for i in a:
+    if i > 4:
+        b.append(i)
+#BAD
+```
+```Python
+a = [3, 4, 5]
+a = [i + 3 for i in a]
+# Or:
+a = map(lambda i: i + 3, a)
+#GOOD
+```
+---
+class: left, middle
+# Façons courtes de manipuler des listes
+```Python
+# Add three to all list members.
+a = [3, 4, 5]
+for i in range(len(a)):
+    a[i] += 3
+#BAD
+```
+```Python
+a = [3, 4, 5]
+a = [i + 3 for i in a]
+# Or:
+a = map(lambda i: i + 3, a)
+
+a = [3, 4, 5]
+for i, item in enumerate(a):
+    print i, item
+# prints
+# 0 3
+# 1 4
+# 2 5
+#GOOD
+```
+---
+class: left, middle
+# Lire depuis un fichier
+```Python
+f = open('file.txt')
+a = f.read()
+print a
+f.close()
+#BAD
+with open('file.txt') as f:
+    for line in f:
+        print line
+#GOOD
+```
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
