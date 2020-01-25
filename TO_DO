@@ -1,8 +1,4 @@
-Python de base, revoir les bonnes pratiques
-
 -Commenter intelligemment les codes python
-
--Gestion de projets, versions et anciens jets
 
 -Gestion correcte de Raspi via connexion SSH
 
@@ -17,19 +13,15 @@ Python de base, revoir les bonnes pratiques
 -Création d’un espace WEB (interface graphique) « facile d’utilisation » pour gérer les plateaux en temps réel et permettre à l’utilisateur lambda de traiter les données
 
                 Exemple : Je choisis tel plateau, je donne telles et telles données sure la personne, je le démarre, la personne mange et ça génère un fichier facile à utiliser, à lire (graphiques, images etc.)
-
+Tutoriel Flask
 -Utilisation d’un autre espace que NANO
-
+==> PyCharm, Geany ?
 -Gestion de caméras et formats d’enregistrement utilisable par la suite
 
 -Stockage local sur Raspi et accès réseau à ce stockage pour le gérer
 
 -Abandon de l’Arduino dans les plateaux en utilisant les entrées GPIO du Raspi
 
--Réécriture de tout programme puisé sur internet pour éradiquer le plagia
-
 (-Optimisation des programmes si le temps le permet, quoique nos attentes semblent inférieures à la capacité réelle des Raspi 3)
 
  
-
-D’un autre côté, je me renseigne sur l’alimentation des Raspi 

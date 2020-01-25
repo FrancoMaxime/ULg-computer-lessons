@@ -78,61 +78,61 @@ class: center, middle
 - Créé à la base pour Linux
 
 ---
-class: center, middle
+class: left middle
 
 # Installation
 
 ```Bash
-sudo apt-get install git-core gitk
+$sudo apt-get install git-core gitk
 
-git config --global color.diff auto
-git config --global color.status auto
-git config --global color.branch auto
+$git config --global color.diff auto
+$git config --global color.status auto
+$git config --global color.branch auto
 
-git config --global user.name "votre_pseudo" #Idealement le meme que sur github
-git config --global user.email moi@email.com "#Idealement le meme que le mail github
+$git config --global user.name "votre_pseudo" #Idealement le meme que sur github
+$git config --global user.email moi@email.com "#Idealement le meme que le mail github
 
 ```
 
 ---
-class: center, middle
+class: left, middle
 
 # Créer un dépot git
 
 ```Bash
-cd /home/maxime/Documents
-mkdir test-git
-cd test-git
+$cd /home/maxime/Documents
+$mkdir test-git
+$cd test-git
 
-git init
+$git init
 ```
 
 il y aura un dossier .git caché qui va contenir l'arborescence du projet.
 
 ---
-class: center, middle
+class: left, middle
 
 # Cloner un dépot depuis github
 
 ```Bash
-git clone https://github.com/FrancoMaxime/ULg-computer-lessons.git
+$git clone https://github.com/FrancoMaxime/ULg-computer-lessons.git
 ```
 
 ---
-class: center, middle
+class: left, middle
 
 # Modifier le code et effectuer des commits
 
 ```Bash
-git status #donne l'état du projet (fichiers modifiés recemment)
+$git status #donne l'état du projet (fichiers modifiés recemment)
 
-git add nom_de_fichier #ajoute le fichier dans l'arborescence git
+$git add nom_de_fichier #ajoute le fichier dans l'arborescence git
 
-git diff # donne les differences entre la dernière sauvegarde et la version actuelle
+$git diff # donne les differences entre la dernière sauvegarde et la version actuelle
 
-git commit -m "commentaires" #sauvegarde les modifications dans l'arborescence
+$git commit -m "commentaires" #sauvegarde les modifications dans l'arborescence
 
-git checkout nomdefichier #supprime les dernières modifs sur un fichier (non commit)
+$git checkout nomdefichier #supprime les dernières modifs sur un fichier (non commit)
 ```
 ---
 class: center, middle
@@ -145,56 +145,169 @@ class: center, middle
 4. jump to step 1
 
 ---
-class: center, middle
+class: left, middle
 
 # Regarder les logs
 ```Bash
-git log #Liste les derniers commits avec leur ID
+$git log #Liste les derniers commits avec leur ID
 
-git log -p #Liste les derniers commits avec les changements
+$git log -p #Liste les derniers commits avec les changements
 ```
 
 ---
-class: center, middle
+class: left, middle
 
 # Annuler un commit
 
 ```Bash
-git commit --amend #pour modifier le commentaire du dernier commit
+$git commit --amend #pour modifier le commentaire du dernier commit
 
-git reset HEAD #Modifie le dernier commit
-git reset HEAD^ #Modifie l'avant dernier commit
-git reset HEAD^^ #Modifie l'avant avant dernier commit
+$git reset HEAD #Modifie le dernier commit
+$git reset HEAD^ #Modifie l'avant dernier commit
+$git reset HEAD^^ #Modifie l'avant avant dernier commit
 
-git reset --hard HEAD^   /!\ Annule les commits et perd tous les changements
+$git reset --hard HEAD^   /!\ Annule les commits et perd tous les changements
 
-git reset HEAD -- nomfichier # supprimer un fichier qui a été commit pour le modif
+$git reset HEAD -- nomfichier # supprimer un fichier qui a été commit pour le modif
 ```
 
 ---
-class: center, middle
+class: left, middle
 
 # Mettre à jour la version locale
 ```Bash
-git pull
+$git pull
 ```
 
 ---
-class: center, middle
+class: left, middle
 
 # Mettre à jour la version distante
 ```Bash
-git push
+$git push
+```
+
+---
+class: left, middle
+
+# Annuler un commit publié
+```Bash
+$git revert 58de9f1c #ici le 58de9f1c représente le début de l'id d'un commit publié
 ```
 
 ---
 class: center, middle
 
-# Annuler un commit publié
+# Utilisation de branche
+
+![image](https://user.oc-static.com/files/236001_237000/236931.png)
+
+---
+class: left, middle
+
+# Lister les branches
 ```Bash
-git revert 58de9f1c #ici le 58de9f1c représente le début de l'id d'un commit publié
+$git branch #liste les branches existantes
+```
+---
+class: center, middle
+
+# Quand créer une branche?
+- « Ma modification sera-t-elle rapide ? » 
+- « Ma modification est-elle simple ? » 
+- « Ma modification nécessite-t-elle un seul commit ? » 
+- « Est-ce que je vois précisément comment faire ma modification d’un seul coup ? »
+
+Si une des réponses à ces questions est non ==> faire une branche
+???
+source : https://openclassrooms.com/fr/courses/1233741-gerez-vos-codes-source-avec-git#/id/r-1234195
+
+---
+class: left, middle
+
+# Créer une branche
+```Bash
+$git branch nom_branche #crée une branche mais ne change pas la current branche
+$git branch
+
+*master
+    nom_branche
+
+$git checkout nom_branche #change de branche
+```
+On peut travailler sur plusieurs branches en simultané
+
+---
+class: left, middle
+
+# Fusionner des branches
+```Bash
+$git checkout master #Aller sur la branche qui va recevoir le code
+
+$git merge nom_branche
 ```
 
+---
+class: left, middle
+
+# Supprimer une branche
+```Bash
+$git branch -d nom_branche #supprime la branche "nom_branche"
+```
+Si la branche n'a pas été merge, alors git refuse.
+
+```Bash
+$git branch -D nom_branche #supprime la branche "nom_branche" ET LES CHANGEMENTS
+```
+
+---
+class: left, middle
+
+# Sauver les modifications non commit
+```Bash
+$git stash #sauve des fichiers non commit
+
+$git stash apply #remet les fichiers dans l'état du stash
+```
+---
+class: left, middle
+
+# Lister les branches connues par le serveur
+```Bash
+$git branch -r #liste les branches existantes
+origin/HEAD -> origin/master
+origin/master
+
+$git branch --track nom_branche origin/nom_branche 
+#télécharge une branche du serveur en local
+
+$git push origin origin:refs/heads/nom_branche 
+#ajoute la nouvelle branche sur le serveur
+
+$git push origin :heads/nom_branche_a_supprimer  
+#supprime la branche du serveur
+
+$git branch -r -d origin/nom_branche_a_supprimer  
+#les dev devront supprimer manuellement la branche localement
+```
+---
+class: left, middle
+
+# Les fichiers à ignorer par git
+```Bash
+touch .gitignore
+```
+Completer le fichier avec les fichiers à ignorer
+```Txt
+*.pyc
+*.db
+*.pdf
+venv/
+tiny_esa/db_handler/__pycache_
+tiny_esa/models/__pycache__
+tinyesa/__pycache__
+.idea/
+```
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
