@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>- 4. Structurer un projet -</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# - 4. Structurer un projet -
+Livre de référence 
+
+https://python-guide-fr.readthedocs.io/fr/latest/writing/structure.html
+
+Modifié par :
+
+Maxime Franco
+contact@maximefranco.be
+franco.maxime@gmail.com
+
+https://github.com/FrancoMaxime
+
+
+---
+class: center, middle
+
+# Lecture supplémentaire 
+
+The Architecture Of Open Source Applications
+
+de Amy Brown
+
+---
+class: center, middle
+
+# Structurer? 
+
+- Decision pour atteindre l'objectif
+- Exploiter au mieux les fonctionnalités de python
+- Propre et Efficace
+
+???
+“structurer” signifie produire du code propre dont la logique et les dépendances sont claires ainsi que la façon dont les fichiers et dossiers sont organisés dans le système de fichiers.
+cf https://python-guide-fr.readthedocs.io/fr/latest/writing/structure.html
+
+---
+class: center, middle
+
+# 1. Structurer le dépot
+La structure est une part importante d'un projet
+- donne le nom du projet
+- description du projet
+- fichiers relatif au projet
+
+L'organisation est importante
+
+---
+class: left, middle
+# Dépot exemple
+
+https://github.com/navdeep-G/samplemod
+
+```Bash
+.gitignore
+README.rst
+LICENSE
+setup.py
+requirements.txt
+sample/__init__.py
+sample/core.py
+sample/helpers.py
+docs/conf.py
+docs/index.rst
+tests/test_basic.py
+tests/test_advanced.py
+```
+
+---
+class: center, middle
+# Le module Sample
+- le dossier porte le nom du projet
+- contient tous les fichiers liés au projet
+- si le projet ne contient qu'un fichier alors le dossier n'est pas obligatoire et à la place un sample.py
+
+BUT : contient le code du projet
+---
+class: center, middle
+# La Licence
+- définis les droits des utilisateurs et des contributeurs
+- pas obligatoire, mais vivement conseillé
+
+BUT : se couvrir juridiquement
+
+---
+class: center, middle
+# Setup.py
+- crée l'installateur
+- crée le paquet
+
+BUT : gestion de la distribution 
+
+---
+class: center, middle
+# requirements.txt
+- dépendances requises
+- peut etre dans le setup.py
+
+BUT : dépendances de développement
+
+???
+contient les dépendances requises pour contribuer au projet: les tests, les builds et la génération de la documentation
+Peut etre découpé en requirements.txt et requirements-dev.txt
+
+---
+class: center, middle
+# Documentation
+- toute la documentation doit etre contenue dans le dossier /doc
+- rarement contenu ailleurs
+- sauf pour les commentaires
+
+BUT : documenter le projet
+
+---
+class: center, middle
+# Tests
+- tests de base dans test_sample.py
+- dans les projets important, chaque sous module à son propre fichiers de test
+- sauf pour les commentaires
+
+BUT : Intégration de paquets et tests unitaires
+
+---
+class: center, middle
+# Makefile
+- permet de creer des comportements pour actions spécifique (tests, init, ...)
+
+BUT : Taches de gestions générique
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
